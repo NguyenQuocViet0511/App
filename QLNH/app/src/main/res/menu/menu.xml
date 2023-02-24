@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/btn_home" android:title="Sơ đồ" android:icon="@drawable/map"></item>
+    <item android:id="@+id/btn_goimon" android:title="Gọi món" android:icon="@drawable/order_food" ></item>
+    <item android:id="@+id/btn_tienich" android:title="Tiện ích" android:icon="@drawable/menu"></item>
+
+</menu>

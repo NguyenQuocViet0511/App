@@ -49,7 +49,14 @@ class users  extends ChangeNotifier{
     emailVerifiedAt = json['email_verified_at'];
     sex = json['sex'];
     date = json['date'];
-    number = json['number'];
+    if(json['number'] == null)
+    {
+      number = '';
+    }
+    else
+    {
+      number = json['note'];
+    }
     image = json['image'];
     address = json['address'];
     status = json['status'];

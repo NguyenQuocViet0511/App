@@ -42,6 +42,22 @@ Future<String> Insertbillinfo (String id_bill,String id_food,String note,String 
   return data;
 
 }
+Future<BillinfoData> GetbillByID(String id_bill,String id_table)  async {
+  // cài đặt tham số POST request
+  Map<String, String> headers = {"Content-type": "application/json"};
+  // tạo POST request
+  Response response = await post(url + "BillInfo/GetBillByID", headers: headers, body: jsonEncode(<String, String>{
+    'id_bill': id_bill,
+    'id_table': id_table,
+  }));
+  // kiểm tra status code của kết quả response
+  int statusCode = response.statusCode;
+  // API này trả về id của item mới được add trong body
+  String body = response.body;
+  BillinfoData data = BillinfoData.fromJson(jsonDecode(body));
+  return data;
+
+}
 
 Future<String> updatebillinfo(String id_bill,String id_food)  async {
   // cài đặt tham số POST request

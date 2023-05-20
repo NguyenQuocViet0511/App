@@ -1,4 +1,6 @@
+import 'dart:convert';
 import 'dart:ffi';
+import 'dart:io';
 
 import 'package:appoder/API/Users/APItalbe.dart';
 import 'package:appoder/Models/Table/talbeDao.dart';
@@ -23,9 +25,12 @@ class WidgetMap extends StatefulWidget {
 }
 
 
+
 class _MapFoodState extends State<WidgetMap> {
   bool _CurentCheck = false;
   table tables = table();
+  late Socket sock;
+
 
   @override
   void initState() {
@@ -39,14 +44,12 @@ class _MapFoodState extends State<WidgetMap> {
     super.setState(fn);
   }
 
-
   Call()
   {
     setState(() {
       data = GetTable();
     });
   }
-
   @override
   Widget build(BuildContext context) {
     // TODO: implement build

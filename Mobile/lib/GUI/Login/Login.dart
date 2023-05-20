@@ -3,6 +3,7 @@
 import 'dart:convert';
 
 import 'package:appoder/API/Const.dart';
+import 'package:appoder/GUI/Main/Manager.dart';
 import 'package:appoder/Models/Users/users.dart';
 import 'package:appoder/Models/Users/usersDao.dart';
 import 'package:flutter/material.dart';
@@ -161,10 +162,21 @@ class _LoginState extends State<Login> {
                                 textColor: Colors.white,
                                 fontSize: 12.0
                             );
-                            Navigator.pop(context);
-                            Navigator.push(context, PageRouteBuilder(pageBuilder: (
-                                context, animation, secondaryAnimation) =>
-                                Home()));
+                            if(us.idRole == 'supperadmin' || us.idRole == 'manager')
+                              {
+                                Navigator.pop(context);
+                                Navigator.push(context, PageRouteBuilder(pageBuilder: (
+                                    context, animation, secondaryAnimation) =>
+                                    Manager()));
+                              }
+                            else
+                              {
+                                Navigator.pop(context);
+                                Navigator.push(context, PageRouteBuilder(pageBuilder: (
+                                    context, animation, secondaryAnimation) =>
+                                    Home()));
+                              }
+
 
                           }
                           else{

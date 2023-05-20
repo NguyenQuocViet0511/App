@@ -32,8 +32,15 @@ class billinfo{
     id = json['id'];
     idBill = json['id_bill'];
     count = json['count'];
+    if(json['note'] == null)
+      {
+        note = '';
+      }
+    else
+      {
+        note = json['note'];
+      }
     sum = json['sum'];
-    note = json['note'];
     status = json['status'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];

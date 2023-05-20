@@ -7,9 +7,38 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
 import 'ManApp.dart';
+import 'package:socket_io_client/socket_io_client.dart' as IO;
+late IO.Socket socket;
 
-class Home extends StatelessWidget {
+void connectAndListen(){
+  socket = IO.io('http://192.168.214.212:9999',
+      IO.OptionBuilder()
+          .setTransports(['websocket']).build());
+
+  socket.onConnect((_) {
+    print('connect');
+    socket.emit('odertable', 'test');
+  });
+
+  //When an event recieved from server, data is added to the stream
+  socket.onDisconnect((_) => print('disconnect'));
+
+}
+class Home extends StatefulWidget {
   const Home({super.key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    connectAndListen();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +53,7 @@ class Home extends StatelessWidget {
               Container(child: const Image(image: AssetImage("images/logo.png"))),
               const Padding(
                 padding: EdgeInsets.all(8.0),
-                child: Text("Chào mung bạn trở lại!",
+                child: Text("Chào mừng bạn trở lại!",
                     style: TextStyle(fontSize: 30, color: Colors.black)),
               ),
               Text(
@@ -109,6 +138,4 @@ class Home extends StatelessWidget {
                   ),
             ])));
   }
-
-
 }

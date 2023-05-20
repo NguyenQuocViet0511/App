@@ -17,15 +17,7 @@ import 'dart:convert';
 //   }
 
 
-void Getusers() async {
-  // Navigator.push(context, MaterialPageRoute(builder: (context) => ManApp()));
-  Response response = await get(url + "tables/list");
-  // data sample trả về trong response
-  int statusCode = response.statusCode;
-  Map<String, String> headers = response.headers;
-  String json = response.body;
-  print(json);
-}
+
 
 Future<usersData> Getlogin (String username,String password)  async {
   // cài đặt tham số POST request
@@ -42,5 +34,19 @@ Future<usersData> Getlogin (String username,String password)  async {
   usersData data = usersData.fromJson(jsonDecode(body));
 
   return data;
+}
+Future<String> Changepassword (String id,String password)  async {
+  // cài đặt tham số POST request
+  Map<String, String> headers = {"Content-type": "application/json"};
+  // tạo POST request
+  Response response = await post(url + "users/changePassword", headers: headers, body: jsonEncode(<String, String>{
+    'id': id,
+    'password': password
+  }));
+  // kiểm tra status code của kết quả response
+  int statusCode = response.statusCode;
+  // API này trả về id của item mới được add trong body
+  String body = response.body;
+  return body;
 }
 

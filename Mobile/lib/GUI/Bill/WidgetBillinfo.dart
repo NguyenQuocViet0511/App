@@ -38,7 +38,7 @@ class _OderFoodState extends State<WidgetBillinfo> {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Text("${tb.idBill}/Hóa đơn "),
+        title: Text("${tb.name}/Hóa đơn "),
         automaticallyImplyLeading: false,
       ),
       body: Column(children: [
@@ -206,41 +206,8 @@ class _OderFoodState extends State<WidgetBillinfo> {
                               color: Colors.white,
                             ),
                           )),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 5),
-                        child: Container(
-                            height: 50,
-                            width: 50,
-                            decoration: BoxDecoration(
-                                color: Colors.blue,
-                                borderRadius: BorderRadius.circular(50),
-                                boxShadow: const [
-                                  BoxShadow(
-                                      color: Colors.grey,
-                                      offset: Offset(3, 3),
-                                      blurRadius: 10)
-                                ]),
-                            child: const Icon(
-                              Icons.money_off_csred,
-                              color: Colors.white,
-                            )),
-                      ),
-                      Container(
-                          height: 50,
-                          width: 50,
-                          decoration: BoxDecoration(
-                              color: Colors.blue,
-                              borderRadius: BorderRadius.circular(50),
-                              boxShadow: const [
-                                BoxShadow(
-                                    color: Colors.grey,
-                                    offset: Offset(3, 3),
-                                    blurRadius: 10)
-                              ]),
-                          child: const Icon(
-                            Icons.bakery_dining,
-                            color: Colors.white,
-                          )),
+
+
                     ],
                   )
                 ],

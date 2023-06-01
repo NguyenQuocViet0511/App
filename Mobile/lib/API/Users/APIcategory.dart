@@ -8,7 +8,7 @@ import '../Const.dart';
 
 
 Future<CategoryData> Getcategory() async {
-  Response response = await get(url + "category/list");
+  Response response = await get(Uri.parse(url + "category/list"));
   // data sample trả về trong response
   int statusCode = response.statusCode;
   Map<String, String> headers = response.headers;

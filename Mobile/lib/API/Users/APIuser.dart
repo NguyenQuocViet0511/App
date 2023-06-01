@@ -23,7 +23,7 @@ Future<usersData> Getlogin (String username,String password)  async {
   // cài đặt tham số POST request
   Map<String, String> headers = {"Content-type": "application/json"};
   // tạo POST request
-  Response response = await post(url + "users/login", headers: headers, body: jsonEncode(<String, String>{
+  Response response = await post(Uri.parse(url + "users/login"), headers: headers, body: jsonEncode(<String, String>{
     'username': username,
     'password': password
   }));
@@ -39,7 +39,7 @@ Future<String> Changepassword (String id,String password)  async {
   // cài đặt tham số POST request
   Map<String, String> headers = {"Content-type": "application/json"};
   // tạo POST request
-  Response response = await post(url + "users/changePassword", headers: headers, body: jsonEncode(<String, String>{
+  Response response = await post(Uri.parse(url + "users/changePassword"), headers: headers, body: jsonEncode(<String, String>{
     'id': id,
     'password': password
   }));

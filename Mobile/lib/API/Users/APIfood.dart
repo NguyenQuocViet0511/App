@@ -8,7 +8,7 @@ import '../Const.dart';
 
 
 Future<foodData> Getfood() async {
-  Response response = await get(url + "food/list");
+  Response response = await get(Uri.parse(url + "food/list"));
   // data sample trả về trong response
   int statusCode = response.statusCode;
   Map<String, String> headers = response.headers;

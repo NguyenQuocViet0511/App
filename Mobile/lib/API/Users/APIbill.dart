@@ -9,7 +9,7 @@ import 'package:http/http.dart';
 import '../Const.dart';
 
 Future<billData> GetbillSum() async {
-  Response response = await get(url + "bill/list");
+  Response response = await get(Uri.parse(url + "bill/list"));
   // data sample trả về trong response
   int statusCode = response.statusCode;
   Map<String, String> headers = response.headers;
@@ -23,7 +23,7 @@ Future<billData> GetbillByDate(String date)  async {
   // cài đặt tham số POST request
   Map<String, String> headers = {"Content-type": "application/json"};
   // tạo POST request
-  Response response = await post(url + "bill/GetBillByDate", headers: headers, body: jsonEncode(<String, String>{
+  Response response = await post(Uri.parse(url + "bill/GetBillByDate"), headers: headers, body: jsonEncode(<String, String>{
     'date': date,
   }));
   // kiểm tra status code của kết quả response
@@ -38,7 +38,7 @@ Future<billData> GetbillByDateFood(String id_bill)  async {
   // cài đặt tham số POST request
   Map<String, String> headers = {"Content-type": "application/json"};
   // tạo POST request
-  Response response = await post(url + "bill/GetBillByDate", headers: headers, body: jsonEncode(<String, String>{
+  Response response = await post(Uri.parse(url + "bill/GetBillByDate"), headers: headers, body: jsonEncode(<String, String>{
     'id_bill': id_bill,
   }));
   // kiểm tra status code của kết quả response

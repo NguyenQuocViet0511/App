@@ -10,20 +10,7 @@ import 'ManApp.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 late IO.Socket socket;
 
-void connectAndListen(){
-  socket = IO.io('http://192.168.214.212:9999',
-      IO.OptionBuilder()
-          .setTransports(['websocket']).build());
 
-  socket.onConnect((_) {
-    print('connect');
-    socket.emit('odertable', 'test');
-  });
-
-  //When an event recieved from server, data is added to the stream
-  socket.onDisconnect((_) => print('disconnect'));
-
-}
 class Home extends StatefulWidget {
   const Home({super.key});
 

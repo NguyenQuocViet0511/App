@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 import '../Models/Billinfo/Billinfo.dart';
 import '../Models/Food/food.dart';
 
-String url = "http://10.0.2.2:8000/api/";
+String url = "http://192.168.137.155/API-server/server.php/api/";
 users us = new users();
 table tb = new table();
 late Socket sock;
@@ -19,7 +19,7 @@ billinfo bill = new billinfo();
 
 
 Future<void> connectAndListen() async {
-   sock = await Socket.connect('10.0.2.2', 9999);
+   sock = await Socket.connect('192.168.137.155', 9999);
    sock.add(utf8.encode('changdata'));
 
 

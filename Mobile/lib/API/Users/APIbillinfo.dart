@@ -10,7 +10,7 @@ Future<String> Insertbillinfo (String id_bill,String id_food,String note,String 
   // cài đặt tham số POST request
   Map<String, String> headers = {"Content-type": "application/json"};
   // tạo POST request
-  Response response = await post(url + "BillInfo/CreateOrUpdate", headers: headers, body: jsonEncode(<String, String>{
+  Response response = await post(Uri.parse(url + "BillInfo/CreateOrUpdate"), headers: headers, body: jsonEncode(<String, String>{
     'id_bill': id_bill,
     'id': id_food,
     'note': note,
@@ -30,7 +30,7 @@ Future<String> Insertbillinfo (String id_bill,String id_food,String note,String 
   // cài đặt tham số POST request
   Map<String, String> headers = {"Content-type": "application/json"};
   // tạo POST request
-  Response response = await post(url + "BillInfo/show", headers: headers, body: jsonEncode(<String, String>{
+  Response response = await post(Uri.parse(url + "BillInfo/show"), headers: headers, body: jsonEncode(<String, String>{
     'id_bill': id_bill,
     'id_table': id_table,
   }));
@@ -46,7 +46,7 @@ Future<BillinfoData> GetbillByID(String id_bill,String id_table)  async {
   // cài đặt tham số POST request
   Map<String, String> headers = {"Content-type": "application/json"};
   // tạo POST request
-  Response response = await post(url + "BillInfo/GetBillByID", headers: headers, body: jsonEncode(<String, String>{
+  Response response = await post(Uri.parse(url + "BillInfo/GetBillByID"), headers: headers, body: jsonEncode(<String, String>{
     'id_bill': id_bill,
     'id_table': id_table,
   }));
@@ -63,7 +63,7 @@ Future<String> updatebillinfo(String id_bill,String id_food)  async {
   // cài đặt tham số POST request
   Map<String, String> headers = {"Content-type": "application/json"};
   // tạo POST request
-  Response response = await post(url + "BillInfo/update", headers: headers, body: jsonEncode(<String, String>{
+  Response response = await post(Uri.parse(url + "BillInfo/update"), headers: headers, body: jsonEncode(<String, String>{
     'id_bill': id_bill,
     'id': id_food,
   }));

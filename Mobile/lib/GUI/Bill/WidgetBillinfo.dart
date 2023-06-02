@@ -29,9 +29,7 @@ class _OderFoodState extends State<WidgetBillinfo> {
     super.initState();
   }
 
-  Call() {
-
-  }
+  Call() {}
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +56,7 @@ class _OderFoodState extends State<WidgetBillinfo> {
                   return ListView(
                     children: [
                       for (billinfo item in BillinfoData.data!.data!.data!)
-                        RowFoods(Item: item,Call: set)
+                        RowFoods(Item: item, Call: set)
                     ],
                   );
                 }
@@ -188,15 +186,13 @@ class _OderFoodState extends State<WidgetBillinfo> {
                                               SendCook();
                                               Navigator.pop(context);
                                               set();
-
-
                                             },
                                             child: const Text("Có")),
                                         TextButton(
                                             onPressed: () {
                                               Navigator.pop(context);
                                             },
-                                            child:const Text("Không"))
+                                            child: const Text("Không"))
                                       ],
                                     );
                                   });
@@ -206,8 +202,6 @@ class _OderFoodState extends State<WidgetBillinfo> {
                               color: Colors.white,
                             ),
                           )),
-
-
                     ],
                   )
                 ],
@@ -220,21 +214,19 @@ class _OderFoodState extends State<WidgetBillinfo> {
   }
 
   Future<void> SendCook() async {
-      await updatebillinfo(tb.idBill.toString(), bill.id.toString());
-      Fluttertoast.showToast(
-          msg: "gửi  Thành Công",
-          toastLength: Toast.LENGTH_SHORT,
-          gravity: ToastGravity.CENTER,
-          timeInSecForIosWeb: 1,
-          textColor: Colors.white,
-          fontSize: 12.0);
-
+    await updatebillinfo(tb.idBill.toString(), bill.id.toString());
+    Fluttertoast.showToast(
+        msg: "gửi  Thành Công",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        textColor: Colors.white,
+        fontSize: 12.0);
   }
-  void set()
-  {
+
+  void set() {
     setState(() {
       Billinfos = Getbillinfo(tb.idBill.toString(), tb.id.toString());
-
     });
   }
 }
@@ -242,7 +234,8 @@ class _OderFoodState extends State<WidgetBillinfo> {
 class RowFoods extends StatefulWidget {
   billinfo Item;
   Function Call;
-  RowFoods({super.key, required this.Item,required this.Call});
+
+  RowFoods({super.key, required this.Item, required this.Call});
 
   @override
   State<RowFoods> createState() => _RowFoodsState();
@@ -258,6 +251,7 @@ class _RowFoodsState extends State<RowFoods> {
     note.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -353,7 +347,9 @@ class _RowFoodsState extends State<RowFoods> {
                           (("" + (widget.Item.sum.toString() + " vnd")))
                               .toString(),
                           style: const TextStyle(
-                              color: Colors.blue, fontSize: 17,fontWeight: FontWeight.bold)),
+                              color: Colors.blue,
+                              fontSize: 17,
+                              fontWeight: FontWeight.bold)),
                     ),
                   ],
                 ),
@@ -378,26 +374,26 @@ class _RowFoodsState extends State<RowFoods> {
                             // visible: item.count > 0 ? true : false,
                             child: InkWell(
                                 onTap: () async {
-                                  if(widget.Item.status == "Yes")
-                                    {
-                                      Fluttertoast.showToast(
-                                          msg: "Không Thể hành động khi đã gửi bếp",
-                                          toastLength: Toast.LENGTH_SHORT,
-                                          gravity: ToastGravity.CENTER,
-                                          timeInSecForIosWeb: 1,
-                                          textColor: Colors.white,
-                                          fontSize: 12.0
-                                      );
-                                    }
-                                  else
-                                    {
-                                      await Insertbillinfo(bill.idBill.toString(),widget.Item.id.toString(),widget.Item.note.toString(),us.id.toString(),"-1",tb.id.toString());
-                                      widget.Call();
-                                    }
-                                  setState(() {
-
-
-                                  });
+                                  if (widget.Item.status == "Yes") {
+                                    Fluttertoast.showToast(
+                                        msg:
+                                            "Không Thể hành động khi đã gửi bếp",
+                                        toastLength: Toast.LENGTH_SHORT,
+                                        gravity: ToastGravity.CENTER,
+                                        timeInSecForIosWeb: 1,
+                                        textColor: Colors.white,
+                                        fontSize: 12.0);
+                                  } else {
+                                    await Insertbillinfo(
+                                        bill.idBill.toString(),
+                                        widget.Item.id.toString(),
+                                        widget.Item.note.toString(),
+                                        us.id.toString(),
+                                        "-1",
+                                        tb.id.toString());
+                                    widget.Call();
+                                  }
+                                  setState(() {});
                                 },
                                 child: const Icon(
                                   Icons.do_not_disturb_on,
@@ -414,21 +410,23 @@ class _RowFoodsState extends State<RowFoods> {
                           ),
                           InkWell(
                             onTap: () async {
-                              if(widget.Item.status == "Yes")
-                              {
+                              if (widget.Item.status == "Yes") {
                                 Fluttertoast.showToast(
                                     msg: "Không Thể hành động khi đã gửi bếp",
                                     toastLength: Toast.LENGTH_SHORT,
                                     gravity: ToastGravity.CENTER,
                                     timeInSecForIosWeb: 1,
                                     textColor: Colors.white,
-                                    fontSize: 12.0
-                                );
-                              }else
-                              {
-                                await Insertbillinfo(bill.idBill.toString(),widget.Item.id.toString(),widget.Item.note.toString(),us.id.toString(),1.toString(),tb.id.toString());
+                                    fontSize: 12.0);
+                              } else {
+                                await Insertbillinfo(
+                                    bill.idBill.toString(),
+                                    widget.Item.id.toString(),
+                                    widget.Item.note.toString(),
+                                    us.id.toString(),
+                                    1.toString(),
+                                    tb.id.toString());
                                 widget.Call();
-
                               }
                             },
                             child: const Icon(
@@ -442,74 +440,101 @@ class _RowFoodsState extends State<RowFoods> {
                       Row(
                         children: [
                           InkWell(
-                            onTap: () async {
-                              if(widget.Item.status == "Yes")
-                              {
-                                Fluttertoast.showToast(
-                                    msg: "Không Thể hành động khi đã gửi bếp",
-                                    toastLength: Toast.LENGTH_SHORT,
-                                    gravity: ToastGravity.CENTER,
-                                    timeInSecForIosWeb: 1,
-                                    textColor: Colors.white,
-                                    fontSize: 12.0
-                                );
-                              }else
-                                {
+                              onTap: () async {
+                                if (widget.Item.status == "Yes") {
+                                  Fluttertoast.showToast(
+                                      msg: "Không Thể hành động khi đã gửi bếp",
+                                      toastLength: Toast.LENGTH_SHORT,
+                                      gravity: ToastGravity.CENTER,
+                                      timeInSecForIosWeb: 1,
+                                      textColor: Colors.white,
+                                      fontSize: 12.0);
+                                } else {
                                   showDialog(
                                       context: context,
                                       builder: (context) {
                                         return AlertDialog(
-                                          title:
-                                          const Text('ghi chú món ăn'),
+                                          title: const Text('ghi chú món ăn'),
                                           actions: [
                                             Padding(
-                                              padding: const EdgeInsets.all(8.0),
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
                                               child: TextField(
                                                 controller: note,
-
                                               ),
                                             ),
                                             TextButton(
                                                 onPressed: () async {
                                                   Navigator.pop(context);
-                                                  await Insertbillinfo(bill.idBill.toString(),widget.Item.id.toString(),note.text.toString(),us.id.toString(),0.toString(),tb.id.toString());
+                                                  await Insertbillinfo(
+                                                      bill.idBill.toString(),
+                                                      widget.Item.id.toString(),
+                                                      note.text.toString(),
+                                                      us.id.toString(),
+                                                      0.toString(),
+                                                      tb.id.toString());
                                                   note.clear();
                                                   widget.Call();
-
                                                 },
                                                 child: const Text("đồng ý")),
-
                                           ],
                                         );
                                       });
-
                                 }
-                            },
-                            child: const Icon(
-                              Icons.edit,
-                              color: Colors.blue,
-                            )
-                          ),
+                              },
+                              child: const Icon(
+                                Icons.edit,
+                                color: Colors.blue,
+                              )),
                           InkWell(
                             onTap: () {
-                              if(widget.Item.status == "Yes")
-                              {
+                              if (widget.Item.status == "Yes") {
                                 Fluttertoast.showToast(
                                     msg: "Không Thể hành động khi đã gửi bếp",
                                     toastLength: Toast.LENGTH_SHORT,
                                     gravity: ToastGravity.CENTER,
                                     timeInSecForIosWeb: 1,
                                     textColor: Colors.white,
-                                    fontSize: 12.0
-                                );
-                              }else
-                              {
-
-                              }
+                                    fontSize: 12.0);
+                              } else {}
                             },
-                            child: const Icon(
-                              Icons.delete_forever,
-                              color: Colors.red,
+                            child: InkWell(
+                              onTap: () {
+                                showDialog(
+                                    context: context,
+                                    builder: (context) {
+                                      return AlertDialog(
+                                        title: const Text('Nhập Vào lí do hủy món'),
+                                        actions: [
+                                          Padding(
+                                            padding:
+                                            const EdgeInsets.all(8.0),
+                                            child: TextField(
+                                              controller: note,
+                                            ),
+                                          ),
+                                          TextButton(
+                                              onPressed: () async {
+                                                // Navigator.pop(context);
+                                                // await Insertbillinfo(
+                                                //     bill.idBill.toString(),
+                                                //     widget.Item.id.toString(),
+                                                //     "hủy món :" + note.text.toString(),
+                                                //     us.id.toString(),
+                                                //     0.toString(),
+                                                //     tb.id.toString());
+                                                // note.clear();
+                                                // widget.Call();
+                                              },
+                                              child: const Text("đồng ý")),
+                                        ],
+                                      );
+                                    });
+                              },
+                              child: const Icon(
+                                Icons.delete_forever,
+                                color: Colors.red,
+                              ),
                             ),
                           )
                         ],

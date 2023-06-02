@@ -55,6 +55,11 @@ class _MapFoodState extends State<WidgetMap> {
     // TODO: implement build
     return Scaffold(
         appBar: AppBar(
+          actions: [IconButton(
+            icon: Icon(Icons.change_circle_outlined), onPressed: () {
+              this.Call();
+          },
+          )],
           title: Text("Sơ đồ"),
         ),
         body: Container(

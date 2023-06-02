@@ -56,6 +56,13 @@ class _FoodsState extends State<Foods> {
     super.initState();
   }
 
+  SetStatus()
+  {
+    setState(() {
+      data = Getfood();
+
+    });
+  }
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -109,9 +116,7 @@ class _FoodsState extends State<Foods> {
             Expanded(
               child: ElevatedButton(
                   onPressed: () {
-                    setState(() {
-                      // Search!.clear();
-                    });
+                    SetStatus();
                     Search = foods!;
                     widget.Call();
                     Navigator.pop(context);
@@ -131,9 +136,7 @@ class _FoodsState extends State<Foods> {
               child: ElevatedButton(
                   onPressed: () async {
                     await Oder();
-                    setState(() {
-                      // Search!.clear();
-                    });
+                    SetStatus();
                     Search = foods!;
                     widget.Call();
                     connectAndListen();

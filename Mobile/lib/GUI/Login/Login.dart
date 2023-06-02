@@ -23,6 +23,7 @@ async {
 
 }
 
+
 class Login extends StatefulWidget{
   @override
   State<Login> createState() => _LoginState();
@@ -36,7 +37,31 @@ class _LoginState extends State<Login> {
   bool checkcickshow = true;
   bool isChecked = false;
 
+  Future<void> DoComback()
+  async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? username  = prefs.getString('username');
+    String?password  = prefs.getString('password');
+    bool?Check  = prefs.getBool('check');
 
+    setState(() {
+      if(Check == true){
+        this.username.text = username!;
+        this.password.text = password!;
+        this.isChecked = Check!;
+
+      }
+    });
+
+
+
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    DoComback();
+  }
   @override
   void dispose() {
     username.dispose();
@@ -63,22 +88,19 @@ class _LoginState extends State<Login> {
     body: Container(
       alignment: Alignment.center,
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 0,horizontal: 30),
+        padding: EdgeInsets.symmetric(vertical: 0,horizontal: 60),
         child: SingleChildScrollView(
           child:
             Column(
               children: [
-                Container(
-                    width: 400,
-                    height: 100,
-                    decoration:  const BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage("images/ten.png")
-                        )
-                    )
-                ),
+                const Text("Xin Chào!",style: TextStyle(
+                color: Colors.black,
+                fontSize: 45, fontWeight: FontWeight.bold,fontStyle: FontStyle.italic)),
+                  const Text("Đăng nhập để tiếp tục",style:TextStyle(
+                    fontSize: 15
+                  ),),
                   Container(
-                    margin: EdgeInsets.fromLTRB(0, 0, 0, 30),
+                    margin: EdgeInsets.fromLTRB(0, 20, 0, 30),
                     width: 400,
                   height: 100,
                   decoration:  const BoxDecoration(
@@ -129,10 +151,11 @@ class _LoginState extends State<Login> {
 
                   ),
                 ),
-                CheckboxListTile(title: Text("Ghi Nhớ Tài Khoản"),value: isChecked, onChanged: (bool? value) {
+                  CheckboxListTile(title: Text("Ghi Nhớ Tài Khoản",style: TextStyle(
+                  fontSize: 14
+                ),),value: isChecked, onChanged: (bool? value) {
                 setState(() {
                   isChecked = value!;
-                  print(isChecked);
                 });
 
               },controlAffinity: ListTileControlAffinity.leading),
@@ -152,7 +175,7 @@ class _LoginState extends State<Login> {
                           if (data.data!.total > 0) {
                             for (users item in data.data!.data) {
                               us = item;
-                              Dologin(item.username.toString(),item.password.toString(),isChecked);
+                              Dologin(item.username.toString(),password.text,isChecked);
                             }
                             Fluttertoast.showToast(
                                 msg: "Đăng Nhập Thành công",
@@ -167,14 +190,14 @@ class _LoginState extends State<Login> {
                                 Navigator.pop(context);
                                 Navigator.push(context, PageRouteBuilder(pageBuilder: (
                                     context, animation, secondaryAnimation) =>
-                                    Manager()));
+                                    const Manager()));
                               }
                             else
                               {
                                 Navigator.pop(context);
                                 Navigator.push(context, PageRouteBuilder(pageBuilder: (
                                     context, animation, secondaryAnimation) =>
-                                    Home()));
+                                    const Home()));
                               }
 
 
@@ -202,12 +225,12 @@ class _LoginState extends State<Login> {
                     style: ElevatedButton.styleFrom(
                       elevation: 5,
                       primary: Color(0xFFFFF082),
-                      fixedSize: Size(MediaQuery.of(context).size.width,50))
+                      fixedSize: Size(MediaQuery.of(context).size.width,40))
                     ,
-                    child: const Text('đăng nhập',
+                    child: const Text('Đăng nhập',
                         style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 18, fontWeight: FontWeight.bold)),
+                            color: Colors.grey,
+                            fontSize: 15, fontWeight: FontWeight.bold)),
                   ),
                 ),
               ],

@@ -56,7 +56,7 @@ class _HomeState extends State<Home> {
                       ),
                       elevation: 5,
                       primary: Color(0xFFFFF082),
-                      fixedSize: Size(MediaQuery.of(context).size.width, 50)),
+                      fixedSize: Size(MediaQuery.of(context).size.width, 40)),
                   onPressed: () {
                     Navigator.push(context, PageRouteBuilder(pageBuilder: (
                         context, animation, secondaryAnimation) =>
@@ -79,7 +79,7 @@ class _HomeState extends State<Home> {
                           ),
                           elevation: 5,
                           primary: Color(0xFFFFF082),
-                          fixedSize: Size(MediaQuery.of(context).size.width, 50)),
+                          fixedSize: Size(MediaQuery.of(context).size.width, 40)),
                       onPressed: () {
                         Navigator.push(context, PageRouteBuilder(pageBuilder: (
                             context, animation, secondaryAnimation) =>
@@ -102,7 +102,7 @@ class _HomeState extends State<Home> {
                           ),
                           elevation: 5,
                           primary:  Color(0xFFFFF082).withOpacity(0.7),
-                          fixedSize: Size(MediaQuery.of(context).size.width, 50)),
+                          fixedSize: Size(MediaQuery.of(context).size.width, 40)),
                         onPressed: () {
                         Navigator.pop(context);
                         Fluttertoast.showToast(

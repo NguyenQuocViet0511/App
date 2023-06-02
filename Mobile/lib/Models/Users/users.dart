@@ -57,8 +57,15 @@ class users  extends ChangeNotifier{
     {
       number = json['note'];
     }
+    if(json['address'] == null)
+    {
+      address = '';
+    }
+    else
+    {
+      address = json['address'];
+    }
     image = json['image'];
-    address = json['address'];
     status = json['status'];
     idRole = json['id_role'];
     createdAt = json['created_at'];

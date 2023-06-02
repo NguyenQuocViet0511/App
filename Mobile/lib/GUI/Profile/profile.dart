@@ -55,7 +55,7 @@ class _profileState extends State<profile> {
         color: Colors.white.withOpacity(0.6),
         child: SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 20, vertical: 0),
@@ -112,79 +112,82 @@ class _profileState extends State<profile> {
                 child: Card(
                   shape: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10)),
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.date_range),
-                          Padding(
-                            padding: const EdgeInsetsDirectional.symmetric(
-                                vertical: 10, horizontal: 20),
-                            child: Text(
-                              "Ngày Sinh: " + us.date.toString(),
-                              style: TextStyle(fontSize: 20),
-                            ),
-                          )
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.transgender),
-                          Padding(
-                            padding: const EdgeInsetsDirectional.symmetric(
-                                vertical: 5, horizontal: 20),
-                            child: Text(
-                              "Giới tính: " + us.sex.toString(),
-                              style: TextStyle(fontSize: 20),
-                            ),
-                          )
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.phone),
-                          Padding(
-                            padding: const EdgeInsetsDirectional.symmetric(
-                                vertical: 5, horizontal: 20),
-                            child: Text(
-                              "Số điện thoại: " + us.number.toString(),
-                              style: TextStyle(fontSize: 20),
-                            ),
-                          )
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.location_city),
-                          Padding(
-                            padding: const EdgeInsetsDirectional.symmetric(
-                                vertical: 5, horizontal: 20),
-                            child: Text(
-                              "Địa chỉ: " + us.address.toString(),
-                              style: TextStyle(fontSize: 20),
-                            ),
-                          )
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.check),
-                          Padding(
-                            padding: const EdgeInsetsDirectional.symmetric(
-                                vertical: 5, horizontal: 20),
-                            child: Text(
-                              "Trạng thái tài khoản: " + us.status.toString(),
-                              style: TextStyle(fontSize: 20),
-                            ),
-                          )
-                        ],
-                      ),
-                    ],
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Icon(Icons.date_range),
+                            Padding(
+                              padding: const EdgeInsetsDirectional.symmetric(
+                                  vertical: 10, horizontal: 20),
+                              child: Text(
+                                "Ngày Sinh: " + us.date.toString(),
+                                style: TextStyle(fontSize: 20),
+                              ),
+                            )
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Icon(Icons.transgender),
+                            Padding(
+                              padding: const EdgeInsetsDirectional.symmetric(
+                                  vertical: 5, horizontal: 20),
+                              child: Text(
+                                "Giới tính: " + us.sex.toString(),
+                                style: TextStyle(fontSize: 20),
+                              ),
+                            )
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Icon(Icons.phone),
+                            Padding(
+                              padding: const EdgeInsetsDirectional.symmetric(
+                                  vertical: 5, horizontal: 20),
+                              child: Text(
+                                "Số điện thoại: " + us.number.toString(),
+                                style: TextStyle(fontSize: 20),
+                              ),
+                            )
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Icon(Icons.location_city),
+                            Padding(
+                              padding: const EdgeInsetsDirectional.symmetric(
+                                  vertical: 5, horizontal: 20),
+                              child: Text(
+                                "Địa chỉ: " + us.address.toString(),
+                                style: TextStyle(fontSize: 20),
+                              ),
+                            )
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Icon(Icons.check),
+                            Padding(
+                              padding: const EdgeInsetsDirectional.symmetric(
+                                  vertical: 5, horizontal: 20),
+                              child: Text(
+                                "Trạng thái tài khoản: " + us.status.toString(),
+                                style: TextStyle(fontSize: 20),
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -198,12 +201,12 @@ class _profileState extends State<profile> {
                       elevation: 5,
                       primary: Color(0xFFFFF082),
                       disabledBackgroundColor: Color(0xFFFFF082),
-                      fixedSize: Size(MediaQuery.of(context).size.width, 50)),
+                      fixedSize: Size(MediaQuery.of(context).size.width,40)),
                   icon: const Icon(Icons.key, color: Colors.red),
                   label: Text("Đổi mật khẩu",
                       style: TextStyle(
                           color: Colors.red,
-                          fontSize: 18,
+                          fontSize: 15,
                           fontWeight: FontWeight.bold)),
                   onPressed: () {
                     showDialog(
@@ -284,13 +287,13 @@ class _profileState extends State<profile> {
                                                   MediaQuery.of(context)
                                                       .size
                                                       .width,
-                                                  50)),
+                                                  40)),
                                           icon: const Icon(Icons.check,
                                               color: Colors.red),
                                           label: Text("Đồng Ý",
                                               style: TextStyle(
                                                   color: Colors.red,
-                                                  fontSize: 18,
+                                                  fontSize: 15,
                                                   fontWeight: FontWeight.bold)),
                                           onPressed: () {
                                             Change(password.text.toString());

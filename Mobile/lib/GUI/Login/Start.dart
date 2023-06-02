@@ -26,7 +26,7 @@ class Start extends StatelessWidget{
                 "Chào Mừng Đên Với Ứng Dụng Oder!",
                 style: TextStyle(
                 color: Colors.white,
-                fontSize:36, fontWeight: FontWeight.bold))
+                fontSize:30, fontWeight: FontWeight.bold))
               ),
 
           Container(
@@ -44,11 +44,11 @@ class Start extends StatelessWidget{
                       borderRadius: BorderRadius.circular(30.0),
                     ),
                       primary: Color(0xFFFFF082).withOpacity(0.6),
-                      fixedSize: const Size(350, 50),),
+                      fixedSize: const Size(300, 30),),
                   child: const Text('Tiếp tục để đăng nhập',
                       style: TextStyle(
                           color: Colors.white,
-                          fontSize: 18, fontWeight: FontWeight.bold)),
+                          fontSize: 15, fontWeight: FontWeight.bold)),
                 ),
               ),
             ),
